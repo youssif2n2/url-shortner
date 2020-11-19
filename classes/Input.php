@@ -7,6 +7,10 @@ class Input{
         $this->_method = ($method == 'POST') ? $_POST : $_GET;
     }
     
+    public function counts(){
+        return count($this->_method);
+    }
+    
     public function check(){
         return (!empty($this->_method));
     }
@@ -16,6 +20,6 @@ class Input{
     }
     
     public function get($item){
-        return ($this->exists($item) ? $this->_method[$item] : false);
+        return ($this->exists($item) ? $this->_method[$item] : $this->_method);
     }
 }
